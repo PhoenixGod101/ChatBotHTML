@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function chatbotResponse() {
+      var input = document.getElementById("userInput").value;
+      var output;
+      if (localStorage.getItem(input)) {
+        output = localStorage.getItem(input);
+      } else {
+        output = "I'm sorry, I don't have a response for that yet. What would you like my response to be?";
+        localStorage.setItem(input, prompt(output));
+      }
+      document.getElementById("chatbotResponse").innerHTML = output;
+    }
+  </script>
+</head>
+<body>
+  <div id="chatbot">
+    <p id="chatbotResponse"></p>
+    <input type="text" id="userInput">
+    <button onclick="chatbotResponse()">Submit</button>
+  </div>
+</body>
+</html>
